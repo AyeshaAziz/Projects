@@ -1,0 +1,67 @@
+/**
+ * 
+ */
+package Numbers;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+/**
+ * @author ayesha aziz
+ *
+ */
+public class GradeCalculator {
+
+ 
+  public static void main(String[] args) {
+    
+      String answer = "y";
+      int marks = 0;
+      String grade = "";
+      System.out.println("Welcome to the Letter Grade Converter");
+      Scanner sc = new Scanner(System.in);
+      while(answer.equalsIgnoreCase("y"))
+      {
+        System.out.printf("Enter a numerical grade / marks: ");
+        try{
+        marks = sc.nextInt();
+        }
+        catch(InputMismatchException e){
+          e.getMessage();
+        }
+        //sc.nextLine();
+        if(marks >= 99 && marks <= 100)
+          grade = "A+";
+        else if(marks >= 94 && marks <= 98)
+          grade = "A";
+        else if(marks >= 88 && marks <= 93)
+          grade = "A-";
+        else if(marks >= 85 && marks <= 87)
+          grade = "B+";
+        else if(marks >= 82 && marks <= 84)
+          grade = "B";
+        else if(marks >= 80 && marks <= 81)
+          grade = "B-";
+        else if(marks >= 75 && marks <= 79)
+          grade = "C+";
+        else if(marks >= 70 && marks <= 74)
+          grade = "C";
+        else if(marks >= 67 && marks <= 69)
+          grade = "C-";
+        else if(marks >= 0 && marks <= 59)
+          grade = "F";
+        else
+        {
+        System.out.println("You have entered an invalid number");
+        grade = "Unable to calculate";
+        }
+        System.out.println("Letter Grade: " + grade);
+        System.out.println("Continue?  (y/n)?");
+        answer = sc.next();
+        
+      }
+      sc.close();
+    }
+  }
+
+
